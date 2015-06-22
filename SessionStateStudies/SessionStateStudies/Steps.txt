@@ -1,0 +1,14 @@
+﻿1. Use StateServer : Session state is using the out-of-process ASP.NET state service to store state information.
+- Configure sessionState with mode = StateServer
+- Enable "ASP.NET State Service"
+- Add below configuration keys to the web.config, inside system.web element
+
+    <!-- 
+      timeout: number of minutes
+      stateNetworkTimeout: number of seconds
+    -->
+    <sessionState mode="StateServer"
+                  useHostingIdentity="true"
+                  timeout="600"
+                  stateNetworkTimeout="60"
+                  cookieName="SSUID"></sessionState>
